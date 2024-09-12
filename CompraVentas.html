@@ -1,0 +1,1184 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CompraVentas</title>
+        <meta charset='utf-8'/>
+        <style>
+ .ͼ1.cm-focused {outline: 1px dotted #212121;}
+.ͼ1 {position: relative !important; box-sizing: border-box; display: flex !important; flex-direction: column;}
+.ͼ1 .cm-scroller {display: flex !important; align-items: flex-start !important; font-family: monospace; line-height: 1.4; height: 100%; overflow-x: auto; position: relative; z-index: 0;}
+.ͼ1 .cm-content[contenteditable=true] {-webkit-user-modify: read-write-plaintext-only;}
+.ͼ1 .cm-content {margin: 0; flex-grow: 2; flex-shrink: 0; display: block; white-space: pre; word-wrap: normal; box-sizing: border-box; min-height: 100%; padding: 4px 0; outline: none;}
+.ͼ1 .cm-lineWrapping {white-space: pre-wrap; white-space: break-spaces; word-break: break-word; overflow-wrap: anywhere; flex-shrink: 1;}
+.ͼ2 .cm-content {caret-color: black;}
+.ͼ3 .cm-content {caret-color: white;}
+.ͼ1 .cm-line {display: block; padding: 0 2px 0 6px;}
+.ͼ1 .cm-layer > * {position: absolute;}
+.ͼ1 .cm-layer {position: absolute; left: 0; top: 0; contain: size style;}
+.ͼ2 .cm-selectionBackground {background: #d9d9d9;}
+.ͼ3 .cm-selectionBackground {background: #222;}
+.ͼ2.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground {background: #d7d4f0;}
+.ͼ3.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground {background: #233;}
+.ͼ1 .cm-cursorLayer {pointer-events: none;}
+.ͼ1.cm-focused > .cm-scroller > .cm-cursorLayer {animation: steps(1) cm-blink 1.2s infinite;}
+@keyframes cm-blink {50% {opacity: 0;}}
+@keyframes cm-blink2 {50% {opacity: 0;}}
+.ͼ1 .cm-cursor, .ͼ1 .cm-dropCursor {border-left: 1.2px solid black; margin-left: -0.6px; pointer-events: none;}
+.ͼ1 .cm-cursor {display: none;}
+.ͼ3 .cm-cursor {border-left-color: #444;}
+.ͼ1 .cm-dropCursor {position: absolute;}
+.ͼ1.cm-focused > .cm-scroller > .cm-cursorLayer .cm-cursor {display: block;}
+.ͼ1 .cm-iso {unicode-bidi: isolate;}
+.ͼ1 .cm-announced {position: fixed; top: -10000px;}
+@media print {.ͼ1 .cm-announced {display: none;}}
+.ͼ2 .cm-activeLine {background-color: #cceeff44;}
+.ͼ3 .cm-activeLine {background-color: #99eeff33;}
+.ͼ2 .cm-specialChar {color: red;}
+.ͼ3 .cm-specialChar {color: #f78;}
+.ͼ1 .cm-gutters {flex-shrink: 0; display: flex; height: 100%; box-sizing: border-box; inset-inline-start: 0; z-index: 200;}
+.ͼ2 .cm-gutters {background-color: #f5f5f5; color: #6c6c6c; border-right: 1px solid #ddd;}
+.ͼ3 .cm-gutters {background-color: #333338; color: #ccc;}
+.ͼ1 .cm-gutter {display: flex !important; flex-direction: column; flex-shrink: 0; box-sizing: border-box; min-height: 100%; overflow: hidden;}
+.ͼ1 .cm-gutterElement {box-sizing: border-box;}
+.ͼ1 .cm-lineNumbers .cm-gutterElement {padding: 0 3px 0 5px; min-width: 20px; text-align: right; white-space: nowrap;}
+.ͼ2 .cm-activeLineGutter {background-color: #e2f2ff;}
+.ͼ3 .cm-activeLineGutter {background-color: #222227;}
+.ͼ1 .cm-panels {box-sizing: border-box; position: sticky; left: 0; right: 0;}
+.ͼ2 .cm-panels {background-color: #f5f5f5; color: black;}
+.ͼ2 .cm-panels-top {border-bottom: 1px solid #ddd;}
+.ͼ2 .cm-panels-bottom {border-top: 1px solid #ddd;}
+.ͼ3 .cm-panels {background-color: #333338; color: white;}
+.ͼ1 .cm-tab {display: inline-block; overflow: hidden; vertical-align: bottom;}
+.ͼ1 .cm-widgetBuffer {vertical-align: text-top; height: 1em; width: 0; display: inline;}
+.ͼ1 .cm-placeholder {color: #888; display: inline-block; vertical-align: top;}
+.ͼ1 .cm-highlightSpace:before {content: attr(data-display); position: absolute; pointer-events: none; color: #888;}
+.ͼ1 .cm-highlightTab {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="20"><path stroke="%23888" stroke-width="1" fill="none" d="M1 10H196L190 5M190 15L196 10M197 4L197 16"/></svg>'); background-size: auto 100%; background-position: right 90%; background-repeat: no-repeat;}
+.ͼ1 .cm-trailingSpace {background-color: #ff332255;}
+.ͼ1 .cm-button {vertical-align: middle; color: inherit; font-size: 70%; padding: .2em 1em; border-radius: 1px;}
+.ͼ2 .cm-button:active {background-image: linear-gradient(#b4b4b4, #d0d3d6);}
+.ͼ2 .cm-button {background-image: linear-gradient(#eff1f5, #d9d9df); border: 1px solid #888;}
+.ͼ3 .cm-button:active {background-image: linear-gradient(#111, #333);}
+.ͼ3 .cm-button {background-image: linear-gradient(#393939, #111); border: 1px solid #888;}
+.ͼ1 .cm-textfield {vertical-align: middle; color: inherit; font-size: 70%; border: 1px solid silver; padding: .2em .5em;}
+.ͼ2 .cm-textfield {background-color: white;}
+.ͼ3 .cm-textfield {border: 1px solid #555; background-color: inherit;}
+.ͼ1 .cm-foldPlaceholder {background-color: #eee; border: 1px solid #ddd; color: #888; border-radius: .2em; margin: 0 1px; padding: 0 1px; cursor: pointer;}
+.ͼ1 .cm-foldGutter span {padding: 0 1px; cursor: pointer;}
+ .templater_search {
+    width: calc(100% - 20px);
+}
+
+.templater_div {
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.templater_div > .setting-item {
+    border-top: none !important;
+    align-self: center;
+}
+
+.templater_div > .setting-item > .setting-item-control {
+    justify-content: space-around;
+    padding: 0;
+    width: 100%;
+}
+
+.templater_div
+    > .setting-item
+    > .setting-item-control
+    > .setting-editor-extra-setting-button {
+    align-self: center;
+}
+
+.templater_donating {
+    margin: 10px;
+}
+
+.templater_title {
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.templater_template {
+    align-self: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 70%;
+}
+
+.templater_cmd {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.templater_div2 > .setting-item {
+    align-content: center;
+    justify-content: center;
+}
+
+.templater-prompt-div {
+    display: flex;
+}
+
+.templater-prompt-form {
+    display: flex;
+    flex-grow: 1;
+}
+
+.templater-prompt-input {
+    flex-grow: 1;
+}
+
+.templater-button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+textarea.templater-prompt-input {
+    height: 10rem;
+}
+
+textarea.templater-prompt-input:focus {
+    border-color: var(--interactive-accent);
+}
+
+.cm-s-obsidian .templater-command-bg {
+    left: 0px;
+    right: 0px;
+    background-color: var(--background-primary-alt);
+}
+
+.cm-s-obsidian .cm-templater-command {
+    font-size: 0.85em;
+    font-family: var(--font-monospace);
+    line-height: 1.3;
+}
+
+.cm-s-obsidian .templater-inline .cm-templater-command {
+    background-color: var(--background-primary-alt);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-templater-opening-tag {
+    font-weight: bold;
+}
+
+.cm-s-obsidian .cm-templater-command.cm-templater-closing-tag {
+    font-weight: bold;
+}
+
+.cm-s-obsidian .cm-templater-command.cm-templater-interpolation-tag {
+    color: var(--code-property, #008bff);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-templater-execution-tag {
+    color: var(--code-function, #c0d700);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-keyword {
+    color: var(--code-keyword, #00a7aa);
+    font-weight: normal;
+}
+
+.cm-s-obsidian .cm-templater-command.cm-atom {
+    color: var(--code-normal, #f39b35);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-value,
+.cm-s-obsidian .cm-templater-command.cm-number,
+.cm-s-obsidian .cm-templater-command.cm-type {
+    color: var(--code-value, #a06fca);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-def,
+.cm-s-obsidian .cm-templater-command.cm-type.cm-def {
+    color: var(--code-normal, var(--text-normal));
+}
+
+.cm-s-obsidian .cm-templater-command.cm-property,
+.cm-s-obsidian .cm-templater-command.cm-property.cm-def,
+.cm-s-obsidian .cm-templater-command.cm-attribute {
+    color: var(--code-function, #98e342);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-variable,
+.cm-s-obsidian .cm-templater-command.cm-variable-2,
+.cm-s-obsidian .cm-templater-command.cm-variable-3,
+.cm-s-obsidian .cm-templater-command.cm-meta {
+    color: var(--code-property, #d4d4d4);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-callee,
+.cm-s-obsidian .cm-templater-command.cm-operator,
+.cm-s-obsidian .cm-templater-command.cm-qualifier,
+.cm-s-obsidian .cm-templater-command.cm-builtin {
+    color: var(--code-operator, #fc4384);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-tag {
+    color: var(--code-tag, #fc4384);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-comment,
+.cm-s-obsidian .cm-templater-command.cm-comment.cm-tag,
+.cm-s-obsidian .cm-templater-command.cm-comment.cm-attribute {
+    color: var(--code-comment, #696d70);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-string,
+.cm-s-obsidian .cm-templater-command.cm-string-2 {
+    color: var(--code-string, #e6db74);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-header,
+.cm-s-obsidian .cm-templater-command.cm-hr {
+    color: var(--code-keyword, #da7dae);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-link {
+    color: var(--code-normal, #696d70);
+}
+
+.cm-s-obsidian .cm-templater-command.cm-error {
+    border-bottom: 1px solid #c42412;
+}
+
+.CodeMirror-hints {
+    position: absolute;
+    z-index: 10;
+    overflow: hidden;
+    list-style: none;
+
+    margin: 0;
+    padding: 2px;
+
+    -webkit-box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    border: 1px solid silver;
+
+    background: white;
+    font-size: 90%;
+    font-family: monospace;
+
+    max-height: 20em;
+    overflow-y: auto;
+}
+
+.CodeMirror-hint {
+    margin: 0;
+    padding: 0 4px;
+    border-radius: 2px;
+    white-space: pre;
+    color: black;
+    cursor: pointer;
+}
+
+li.CodeMirror-hint-active {
+    background: #08f;
+    color: white;
+}
+ .iconize-inline-title-wrapper {
+  width: var(--line-width);
+  margin-inline: var(--content-margin);
+}
+
+.iconize-title-icon {
+  max-width: var(--max-width);
+  margin-right: var(--size-4-2);
+}
+
+.iconize-icon-in-link {
+  margin-right: var(--size-2-2);
+  display: inline-flex;
+}
+
+.iconize-icon {
+  border: 1px solid transparent;
+  margin: 0px 4px 0px 0px;
+  display: flex;
+  align-self: center;
+  margin: auto 0;
+}
+
+.nav-folder-title,
+.nav-file-title {
+  align-items: center;
+}
+
+.iconize-setting input[type='color'] {
+  margin: 0 6px;
+}
+
+.iconize-modal.prompt-results {
+  margin: 0;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.prompt .iconize-subheadline {
+  margin-top: 12px;
+  font-size: 12px;
+  color: gray;
+  grid-column-start: 1;
+  grid-column-end: 6;
+}
+
+@media (max-width: 640px) {
+  .iconize-modal.prompt-results {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .prompt .iconize-subheadline {
+    grid-column-end: 4;
+  }
+}
+
+.iconize-modal.prompt-results .suggestion-item {
+  cursor: pointer;
+  white-space: pre-wrap;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column-reverse;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 16px 8px;
+  line-break: auto;
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+.iconize-modal.prompt-results .suggestion-item.suggestion-item__center {
+  justify-content: center;
+}
+
+.iconize-icon-preview {
+  font-size: 22px;
+}
+
+.iconize-icon-preview img {
+  width: 16px;
+  height: 16px;
+}
+
+.iconize-icon-preview svg {
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+  margin-bottom: 4px;
+}
+
+.iconize-dragover {
+  position: relative;
+}
+
+.iconize-dragover-el {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--text-normal);
+  background-color: var(--background-secondary-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom rule modal. */
+.iconize-custom-modal .modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconize-custom-modal .modal-content input {
+  width: 100%;
+  margin-right: 0.5rem;
+}
+ /* @settings
+
+name: Ozan's Image in Editor Plugin
+id: oz-image-in-editor-plugin
+settings:
+
+    -
+        id: oz-img-in-editor-max-transclusion-height
+        title: Transclusion Embed Maximum Height
+        description: Set the max height of transclusion render in editor as px
+        type: variable-number
+        default: 600
+        format: px
+    -
+        id: oz-img-in-editor-max-msg-height
+        title: MSG Embed Maximum Height
+        description: Set the max height of msg render in editor as px
+        type: variable-number
+        default: 300
+        format: px
+    -
+        id: oz-img-in-editor-img-size-xx-small
+        title: Alt Text "#xx-small" Maximum Image Width
+        description: Set the max width of images with "#xx-small" alt text
+        type: variable-number
+        default: 25
+        format: "%"
+    -
+        id: oz-img-in-editor-img-size-x-small
+        title: Alt Text "#x-small" Maximum Image Width
+        description: Set the max width of images with "#x-small" alt text
+        type: variable-number
+        default: 50
+        format: "%"
+    -
+        id: oz-img-in-editor-img-size-small
+        title: Alt Text "#small" Maximum Image Width
+        description: Set the max width of images with "#small" alt text
+        type: variable-number
+        default: 75
+        format: "%"
+*/
+
+.theme-light,
+.theme-dark {
+    --oz-img-in-editor-max-msg-height: 300px;
+    --oz-img-in-editor-max-transclusion-height: 600px;
+    --oz-img-in-editor-img-size-xx-small: 25%;
+    --oz-img-in-editor-img-size-x-small: 50%;
+    --oz-img-in-editor-img-size-small: 75%;
+}
+
+.CodeMirror-linewidget img {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.theme-dark img[alt$='#invert'],
+.theme-dark div.oz-image-widget > img[alt$='#invert'],
+.theme-dark div.oz-image-widget-cm6 > img[alt$='#invert'] {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+.oz-transclusion-widget,
+.oz-transclusion-widget-cm6 {
+    padding: 3px 3px 3px 19px;
+    border: 0.7px solid var(--text-muted);
+    max-height: var(oz-img-in-editor-max-transclusion-height);
+    overflow: auto;
+    border-radius: 7px;
+    margin-top: 5px;
+}
+
+.oz-coffee-div,
+.oz-tip-div {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.oz-tip-div img {
+    border-radius: 10px;
+}
+
+/* Line Numbers In Editor CodeBlock Renders */
+pre[class*='language-'].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+pre[class*='language-'].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+}
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #999;
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+
+.mermaid-error-information {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.oz-modal-center {
+    text-align: center;
+    margin: 20px 10px 20px 10px;
+}
+
+.oz-modal-title {
+    text-align: center;
+}
+
+.inline-mathjax-block {
+    margin-left: 5px;
+}
+
+.oz-image-widget > img,
+.oz-image-widget-cm6 > img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+div.oz-transclusion-widget pre,
+div.oz-transclusion-widget-cm6 pre {
+    overflow-x: auto;
+}
+
+.oz-transclusion-widget > *,
+.oz-transclusion-widget-cm6 > * {
+    user-select: text !important;
+}
+
+/* Rich Link Cards */
+/* Credit: https://github.com/dhamaniasad/obsidian-rich-links */
+.oz-rich-link-card {
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 3px;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    background-color: var(--background-primary);
+}
+
+.oz-rich-link-card-container {
+    position: relative;
+}
+
+.oz-rich-link-image-container {
+    height: 100px;
+    width: 35%;
+    min-width: 120px;
+    overflow: hidden;
+    border-right: 1px solid var(--background-modifier-border);
+}
+
+.oz-rich-link-image {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 100px;
+    background-color: var(--background-secondary);
+}
+
+.oz-rich-link-card-text {
+    padding: 4px;
+    width: 75%;
+}
+
+.oz-rich-link-card-title {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0 0 4px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: var(--text-normal);
+}
+
+.oz-rich-link-card-description {
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 0;
+    color: var(--text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.oz-rich-link-href {
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 0;
+    color: var(--text-faint);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.image-in-editor-settings-main-header {
+    text-align: center !important;
+    margin-bottom: 20px;
+}
+
+.image-in-editor-cm-header {
+    margin-top: 0px;
+}
+
+.image-in-editor-editor-header {
+    margin-bottom: 5px;
+}
+
+/* Sizing for CM5 and CM6 */
+
+div.oz-image-widget > img[alt$='#small'],
+div.oz-image-widget-cm6 > img[alt$='#small'] {
+    max-width: var(--oz-img-in-editor-img-size-small) !important;
+}
+
+div.oz-image-widget > img[alt$='#x-small'],
+div.oz-image-widget-cm6 > img[alt$='#x-small'] {
+    max-width: var(--oz-img-in-editor-img-size-x-small) !important;
+}
+
+div.oz-image-widget > img[alt$='#xx-small'],
+div.oz-image-widget-cm6 > img[alt$='#xx-small'] {
+    max-width: var(--oz-img-in-editor-img-size-xx-small) !important;
+}
+
+/* Style For CM6 */
+
+div.oz-image-widget-cm6,
+div.oz-custom-html-widget-cm6,
+div.oz-pdf-widget-cm6 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+div.oz-image-widget-cm6 + br,
+div.oz-custom-html-widget-cm6 + br,
+div.oz-pdf-widget-cm6 + br {
+    display: none;
+}
+
+.cm-line div.oz-transclusion-widget-cm6 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.cm-line div.oz-transclusion-widget-cm6 * {
+    margin-block-start: 0px !important;
+    margin-block-end: 0px !important;
+}
+
+/* Legacy Admonition */
+
+.oz-admonition {
+    margin: 1.5em 0;
+    padding: 0;
+    overflow: hidden;
+    page-break-inside: avoid;
+    border-left: 0.3rem solid rgb(var(--oz-admonition-color));
+    border-radius: 0.1rem;
+    box-shadow: 0 0.2rem 0.5rem rgb(44, 43, 43);
+}
+
+.oz-admonition-title {
+    position: relative;
+    padding: 15px 5px 15px 15px;
+    font-weight: 700;
+    background-color: rgba(var(--oz-admonition-color), 0.1);
+}
+
+.oz-admonition-title-content {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.oz-admonition-content-holder {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.oz-admonition-content {
+    margin: 10px 15px;
+    position: relative;
+    overflow-x: auto;
+}
+
+.oz-admonition-title-markdown {
+    text-transform: capitalize;
+    display: block;
+}
+
+.oz-transclusion-widget-cm6 span.hashtag {
+    background-color: var(--tag-background);
+    border: var(--tag-border-width) solid var(--tag-border-color);
+    border-radius: var(--tag-radius);
+    color: var(--tag-color);
+    font-size: var(--tag-size);
+    text-decoration: var(--tag-decoration);
+    padding: var(--tag-padding-y) var(--tag-padding-x);
+    line-height: 1;
+}
+
+.oz-custom-html-widget-cm6 .msg-handler-plugin-renderer {
+    max-height: var(--oz-img-in-editor-max-msg-height);
+    overflow-y: scroll;
+    border: 0.1px solid var(--text-muted);
+    padding: 10px;
+}
+
+.cm-line:has(div.is-collapsed) .oz-custom-html-widget-cm6,
+.cm-line:has(div.is-collapsed) .oz-image-widget-cm6,
+.cm-line:has(div.is-collapsed) .oz-pdf-widget-cm6,
+.cm-line:has(div.is-collapsed) .oz-transclusion-widget-cm6 {
+    display: none;
+}
+ 
+.pandoc-plugin-error {
+    color: red;
+}
+  .CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+ .CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+ .CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+undefined
+</style>
+    </head>
+    <body>
+<h3 data-heading="1.  Ajustar los tipos de dato, según las características del SMBD y ejecutar todos los comandos DDL adjuntos." dir="auto">1.  Ajustar los tipos de dato, según las características del SMBD y ejecutar todos los comandos DDL adjuntos.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token comment">-- Creación de la tabla Personal</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Personal <span class="token punctuation">(</span>
+  NumSS <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Clave primaria sin cambios</span>
+  Nombre <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR para admitir texto</span>
+  ApePaterno <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  ApeMaterno <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  TelPersonal <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado de INT a VARCHAR(15) para números telefónicos</span>
+  TelCasa <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Lo mismo de arriba</span>
+  FechaContrato <span class="token keyword">DATE</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Tipo de dato DATE para almacenar fechas</span>
+  FrecuenciaPago <span class="token keyword">ENUM</span><span class="token punctuation">(</span><span class="token string">'Semana'</span><span class="token punctuation">,</span> <span class="token string">'Quincena'</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Uso de ENUM para limitar las opciones</span>
+  SueldoBase <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- DECIMAL para valores monetarios con 2 decimales</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>NumSS<span class="token punctuation">)</span>  <span class="token comment">-- Llave primaria</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Creación de la tabla Clientes</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Clientes <span class="token punctuation">(</span>
+  RFC <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- RFC usualmente tiene longitud fija</span>
+  Nombre <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  ApePaterno <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  ApeMaterno <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  Calle <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Ajuste a 50 caracteres para dirección</span>
+  Num <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR para admitir números y letras</span>
+  Colonia <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  CP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado de INT a VARCHAR(10) para códigos postales con letras o guiones</span>
+  Alcaldia <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>RFC<span class="token punctuation">)</span>  <span class="token comment">-- Llave primaria</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Creación de la tabla Proveedores</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Proveedores <span class="token punctuation">(</span>
+  RFC <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- RFC usualmente tiene longitud fija</span>
+  NomEmpresa <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  NombreRepresentante <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  ApeP_Representante <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado a VARCHAR</span>
+  TelContacto <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cambiado de INT a VARCHAR(15)</span>
+  DiaPedido <span class="token keyword">ENUM</span><span class="token punctuation">(</span><span class="token string">'Lunes'</span><span class="token punctuation">,</span> <span class="token string">'Martes'</span><span class="token punctuation">,</span> <span class="token string">'Miércoles'</span><span class="token punctuation">,</span> <span class="token string">'Jueves'</span><span class="token punctuation">,</span> <span class="token string">'Viernes'</span><span class="token punctuation">,</span> <span class="token string">'Sábado'</span><span class="token punctuation">,</span> <span class="token string">'Domingo'</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Uso de ENUM para restringir días de pedido</span>
+  DiaEntrega <span class="token keyword">ENUM</span><span class="token punctuation">(</span><span class="token string">'Lunes'</span><span class="token punctuation">,</span> <span class="token string">'Martes'</span><span class="token punctuation">,</span> <span class="token string">'Miércoles'</span><span class="token punctuation">,</span> <span class="token string">'Jueves'</span><span class="token punctuation">,</span> <span class="token string">'Viernes'</span><span class="token punctuation">,</span> <span class="token string">'Sábado'</span><span class="token punctuation">,</span> <span class="token string">'Domingo'</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Uso de ENUM para restringir días de entrega</span>
+  TipoPago <span class="token keyword">ENUM</span><span class="token punctuation">(</span><span class="token string">'Efectivo'</span><span class="token punctuation">,</span> <span class="token string">'Transferencia'</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Uso de ENUM para tipos de pago</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>RFC<span class="token punctuation">)</span>  <span class="token comment">-- Llave primaria</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Creación de la tabla Productos</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Productos <span class="token punctuation">(</span>
+  CodProd <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>  <span class="token comment">-- AUTO_INCREMENT para generar el código del producto</span>
+  DescripL <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Descripción larga como VARCHAR</span>
+  DescripC <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Descripción corta como VARCHAR</span>
+  PrecioV <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- DECIMAL para precio de venta con 2 decimales</span>
+  Existencias <span class="token keyword">INT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Usamos INT para cantidades enteras</span>
+  StockMin <span class="token keyword">INT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Usamos INT para el stock mínimo</span>
+  StockMax <span class="token keyword">INT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Usamos INT para el stock máximo</span>
+  Oferta <span class="token keyword">TINYINT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- TINYINT(1) para booleanos (1 = sí, 0 = no)</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>CodProd<span class="token punctuation">)</span>  <span class="token comment">-- Llave primaria</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Creación de la tabla Ventas</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Ventas <span class="token punctuation">(</span>
+  NumV <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave primaria para número de venta</span>
+  Fecha <span class="token keyword">DATE</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Tipo DATE para la fecha de la venta</span>
+  Hora <span class="token keyword">TIME</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Tipo TIME para la hora de la venta</span>
+  Subtotal <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- DECIMAL para subtotal con 2 decimales</span>
+  IVA <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- DECIMAL para IVA con 2 decimales</span>
+  Total <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- DECIMAL para total con 2 decimales</span>
+  Clientes_RFC <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Se relaciona con el RFC de la tabla Clientes</span>
+  Personal_NumSS <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Se relaciona con la tabla Personal</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>NumV<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave primaria</span>
+  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>Clientes_RFC<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Clientes<span class="token punctuation">(</span>RFC<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave foránea hacia Clientes</span>
+  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>Personal_NumSS<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Personal<span class="token punctuation">(</span>NumSS<span class="token punctuation">)</span>  <span class="token comment">-- Llave foránea hacia Personal</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Creación de la tabla ProductosVentas</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> ProductosVentas <span class="token punctuation">(</span>
+  Cantidad <span class="token keyword">INT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cantidad de productos en la venta</span>
+  PrecioV <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Precio de venta por producto</span>
+  Subtotal_Prod <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Subtotal por producto</span>
+  Ventas_NumV <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave foránea hacia la tabla Ventas</span>
+  Productos_CodProd <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave foránea hacia la tabla Productos</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>Ventas_NumV<span class="token punctuation">,</span> Productos_CodProd<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave primaria compuesta</span>
+  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>Ventas_NumV<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Ventas<span class="token punctuation">(</span>NumV<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave foránea hacia Ventas</span>
+  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Productos<span class="token punctuation">(</span>CodProd<span class="token punctuation">)</span>  <span class="token comment">-- Llave foránea hacia Productos</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Creación de la tabla Compras</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Compras <span class="token punctuation">(</span>
+  NumC <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave primaria con AUTO_INCREMENT para número de compra</span>
+  FechaHoraP <span class="token keyword">DATETIME</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Tipo DATETIME para la fecha y hora del pedido</span>
+  FechaHoraE <span class="token keyword">DATETIME</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Tipo DATETIME para la fecha y hora de la entrega</span>
+  TipoPago <span class="token keyword">ENUM</span><span class="token punctuation">(</span><span class="token string">'Efectivo'</span><span class="token punctuation">,</span> <span class="token string">'Transferencia'</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Uso de ENUM para restringir los tipos de pago</span>
+  Subtotal <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- DECIMAL para subtotal con 2 decimales</span>
+  IVA <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- DECIMAL para IVA con 2 decimales</span>
+  Total <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- DECIMAL para total con 2 decimales</span>
+  Proveedores_RFC <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave foránea hacia la tabla Proveedores</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>NumC<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave primaria</span>
+  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>Proveedores_RFC<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Proveedores<span class="token punctuation">(</span>RFC<span class="token punctuation">)</span>  <span class="token comment">-- Llave foránea hacia Proveedores</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Creación de la tabla ProductosCompras</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> ProductosCompras <span class="token punctuation">(</span>
+  Cantidad <span class="token keyword">INT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Cantidad de productos en la compra</span>
+  PrecioC <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Precio de compra por producto</span>
+  Subtotal_Prod <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Subtotal por producto</span>
+  Compras_NumC <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave foránea hacia la tabla Compras</span>
+  Productos_CodProd <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave foránea hacia la tabla Productos</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>Compras_NumC<span class="token punctuation">,</span> Productos_CodProd<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave primaria compuesta</span>
+  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>Compras_NumC<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Compras<span class="token punctuation">(</span>NumC<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">-- Llave foránea hacia Compras</span>
+  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Productos<span class="token punctuation">(</span>CodProd<span class="token punctuation">)</span>  <span class="token comment">-- Llave foránea hacia Productos</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code><button class="copy-code-button">Copiar</button></pre>
+<h3 data-heading="2. Cambiar el nombre de las tablas “ProductosVentas” y “ProductosCompras”, por “productosv” y “productosc” respectivamente." dir="auto">2. Cambiar el nombre de las tablas “ProductosVentas” y “ProductosCompras”, por “productosv” y “productosc” respectivamente.</h3>
+<p dir="auto">Para cambiar el nombre de las tablas de <code>ProductosVentas</code> y <code>ProductosCompras</code> a <code>productosv</code> y <code>productosc</code>, respectivamente, puedes usar el comando <code>RENAME</code> en MySQL. A continuación te dejo el código que realiza este cambio, junto con anotaciones para que sepas qué se está haciendo:</p>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token comment">-- Cambiar el nombre de la tabla ProductosVentas a productosv</span>
+<span class="token keyword">RENAME</span> <span class="token keyword">TABLE</span> ProductosVentas <span class="token keyword">TO</span> productosv<span class="token punctuation">;</span>
+
+<span class="token comment">-- Cambiar el nombre de la tabla ProductosCompras a productosc</span>
+<span class="token keyword">RENAME</span> <span class="token keyword">TABLE</span> ProductosCompras <span class="token keyword">TO</span> productosc<span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<ol>
+<li dir="auto"><strong><code>RENAME TABLE ProductosVentas TO productosv;</code></strong>: Se utiliza el comando <code>RENAME TABLE</code> seguido del nombre actual de la tabla (<code>ProductosVentas</code>) y luego el nuevo nombre (<code>productosv</code>), de manera similar, este comando cambia el nombre de la tabla <code>ProductosCompras</code> a <code>productosc</code>.</li>
+</ol>
+<h3 data-heading="3. Agregar a la tabla de personal las siguientes columnas:" dir="auto">3. Agregar a la tabla de personal las siguientes columnas:</h3>
+<p dir="auto">El comando <code>ALTER</code> en SQL se utiliza para modificar la estructura de una tabla existente sin necesidad de eliminarla y volver a crearla. </p>
+<h4 data-heading="a. Puesto de tipo varchar (10)" dir="auto">a. Puesto de tipo varchar (10)</h4>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> personal
+<span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> Puesto <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<h4 data-heading="b. H_entrada de tipo time" dir="auto">b. H_entrada de tipo time</h4>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> personal
+<span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> H_entrada <span class="token keyword">TIME</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<h4 data-heading="c. H_salida de tipo time" dir="auto">c. H_salida de tipo time</h4>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> personal
+<span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> H_salida <span class="token keyword">TIME</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<h3 data-heading="4. Ejecutar los comandos de inserción anexos y en caso de presentarse algún error, corregir indicando lo realizado." dir="auto">4. Ejecutar los comandos de inserción anexos y en caso de presentarse algún error, corregir indicando lo realizado.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token comment">/*Insert en personal*/</span>
+<span class="token comment">/*Corrección: Campo "FecuenciaPago" corregido a "FrecuenciaPago"*/</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Personal <span class="token punctuation">(</span>NumSS<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>TelPersonal<span class="token punctuation">,</span>TelCasa<span class="token punctuation">,</span>FechaContrato<span class="token punctuation">,</span>FrecuenciaPago<span class="token punctuation">,</span>SueldoBase<span class="token punctuation">,</span>Puesto<span class="token punctuation">,</span>h_entrada<span class="token punctuation">,</span>h_salida<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">167</span><span class="token punctuation">,</span><span class="token string">'Hilda'</span><span class="token punctuation">,</span><span class="token string">'Guzmán'</span><span class="token punctuation">,</span><span class="token string">'Reyes'</span><span class="token punctuation">,</span><span class="token number">55456789</span><span class="token punctuation">,</span><span class="token number">21572456</span><span class="token punctuation">,</span><span class="token string">'2015-05-16'</span><span class="token punctuation">,</span><span class="token string">'Semana'</span><span class="token punctuation">,</span><span class="token number">1200.00</span><span class="token punctuation">,</span><span class="token string">'Ayudante'</span><span class="token punctuation">,</span><span class="token string">'07:35:30'</span><span class="token punctuation">,</span><span class="token string">'12:36:19'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Personal <span class="token punctuation">(</span>NumSS<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>TelPersonal<span class="token punctuation">,</span>TelCasa<span class="token punctuation">,</span>FechaContrato<span class="token punctuation">,</span>FrecuenciaPago<span class="token punctuation">,</span>SueldoBase<span class="token punctuation">,</span>Puesto<span class="token punctuation">,</span>h_entrada<span class="token punctuation">,</span>h_salida<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">321</span><span class="token punctuation">,</span><span class="token string">'Erendira'</span><span class="token punctuation">,</span><span class="token string">'Del Valle'</span><span class="token punctuation">,</span><span class="token string">'Merino'</span><span class="token punctuation">,</span><span class="token number">55123456</span><span class="token punctuation">,</span><span class="token number">21573520</span><span class="token punctuation">,</span><span class="token string">'1995-01-01'</span><span class="token punctuation">,</span><span class="token string">'Quincena'</span><span class="token punctuation">,</span><span class="token number">3000.00</span><span class="token punctuation">,</span><span class="token string">'Administrador'</span><span class="token punctuation">,</span><span class="token string">'07:35:31'</span><span class="token punctuation">,</span><span class="token string">'10:36:19'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Personal <span class="token punctuation">(</span>NumSS<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>TelPersonal<span class="token punctuation">,</span>TelCasa<span class="token punctuation">,</span>FechaContrato<span class="token punctuation">,</span>FrecuenciaPago<span class="token punctuation">,</span>SueldoBase<span class="token punctuation">,</span>Puesto<span class="token punctuation">,</span>h_entrada<span class="token punctuation">,</span>h_salida<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">456</span><span class="token punctuation">,</span><span class="token string">'Luis'</span><span class="token punctuation">,</span><span class="token string">'Garcia'</span><span class="token punctuation">,</span><span class="token string">'Becerril'</span><span class="token punctuation">,</span><span class="token number">55234567</span><span class="token punctuation">,</span><span class="token number">21571234</span><span class="token punctuation">,</span><span class="token string">'1995-01-01'</span><span class="token punctuation">,</span><span class="token string">'Quincena'</span><span class="token punctuation">,</span><span class="token number">3000.00</span><span class="token punctuation">,</span><span class="token string">'Administrador'</span><span class="token punctuation">,</span><span class="token string">'07:35:31'</span><span class="token punctuation">,</span><span class="token string">'15:36:19'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Personal <span class="token punctuation">(</span>NumSS<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>TelPersonal<span class="token punctuation">,</span>TelCasa<span class="token punctuation">,</span>FechaContrato<span class="token punctuation">,</span>FrecuenciaPago<span class="token punctuation">,</span>SueldoBase<span class="token punctuation">,</span>Puesto<span class="token punctuation">,</span>h_entrada<span class="token punctuation">,</span>h_salida<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">687</span><span class="token punctuation">,</span><span class="token string">'Veronica'</span><span class="token punctuation">,</span><span class="token string">'Ordoñes'</span><span class="token punctuation">,</span><span class="token string">'Flores'</span><span class="token punctuation">,</span><span class="token number">55001234</span><span class="token punctuation">,</span><span class="token number">21579874</span><span class="token punctuation">,</span><span class="token string">'2010-07-01'</span><span class="token punctuation">,</span><span class="token string">'Semana'</span><span class="token punctuation">,</span><span class="token number">1000.00</span><span class="token punctuation">,</span><span class="token string">'Ayudante'</span><span class="token punctuation">,</span><span class="token string">'07:35:31'</span><span class="token punctuation">,</span><span class="token string">'09:36:19'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Personal <span class="token punctuation">(</span>NumSS<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>TelPersonal<span class="token punctuation">,</span>TelCasa<span class="token punctuation">,</span>FechaContrato<span class="token punctuation">,</span>FrecuenciaPago<span class="token punctuation">,</span>SueldoBase<span class="token punctuation">,</span>Puesto<span class="token punctuation">,</span>h_entrada<span class="token punctuation">,</span>h_salida<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">897</span><span class="token punctuation">,</span><span class="token string">'Cristina'</span><span class="token punctuation">,</span><span class="token string">'Monroy'</span><span class="token punctuation">,</span><span class="token string">'Jimenez'</span><span class="token punctuation">,</span><span class="token number">55345678</span><span class="token punctuation">,</span><span class="token number">21571265</span><span class="token punctuation">,</span><span class="token string">'2016-01-16'</span><span class="token punctuation">,</span><span class="token string">'Semana'</span><span class="token punctuation">,</span><span class="token number">1200.00</span><span class="token punctuation">,</span><span class="token string">'Ayudante'</span><span class="token punctuation">,</span><span class="token string">'07:35:31'</span><span class="token punctuation">,</span><span class="token string">'16:36:19'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*Insert en clientes*/</span>
+<span class="token comment">/*Corrección: Nombres "Guzmá¡n" y "PeÃ±a" corregidos a "Guzmán" y "Peña"*/</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Clientes <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>Calle<span class="token punctuation">,</span>Num<span class="token punctuation">,</span>Colonia<span class="token punctuation">,</span>CP<span class="token punctuation">,</span>Alcaldia<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'CARH810911'</span><span class="token punctuation">,</span><span class="token string">'Hilda'</span><span class="token punctuation">,</span><span class="token string">'Guzmán'</span><span class="token punctuation">,</span><span class="token string">'Reyes'</span><span class="token punctuation">,</span><span class="token string">'Los Pinos'</span><span class="token punctuation">,</span><span class="token number">29</span><span class="token punctuation">,</span><span class="token string">'La Peña'</span><span class="token punctuation">,</span><span class="token number">15230</span><span class="token punctuation">,</span><span class="token string">'Milpa Alta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Clientes <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>Calle<span class="token punctuation">,</span>Num<span class="token punctuation">,</span>Colonia<span class="token punctuation">,</span>CP<span class="token punctuation">,</span>Alcaldia<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'DOME751202'</span><span class="token punctuation">,</span><span class="token string">'Erick'</span><span class="token punctuation">,</span><span class="token string">'Dominguez'</span><span class="token punctuation">,</span><span class="token string">'Morales'</span><span class="token punctuation">,</span><span class="token string">'El Mirador'</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token string">'Tejomulco'</span><span class="token punctuation">,</span><span class="token number">15225</span><span class="token punctuation">,</span><span class="token string">'Milpa Alta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Clientes <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>Calle<span class="token punctuation">,</span>Num<span class="token punctuation">,</span>Colonia<span class="token punctuation">,</span>CP<span class="token punctuation">,</span>Alcaldia<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'GUJA770724'</span><span class="token punctuation">,</span><span class="token string">'Adriana'</span><span class="token punctuation">,</span><span class="token string">'Guzmán'</span><span class="token punctuation">,</span><span class="token string">'Jimenez'</span><span class="token punctuation">,</span><span class="token string">'Gladiolas'</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token string">'Jazmin'</span><span class="token punctuation">,</span><span class="token number">15220</span><span class="token punctuation">,</span><span class="token string">'Milpa Alta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Clientes <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>Calle<span class="token punctuation">,</span>Num<span class="token punctuation">,</span>Colonia<span class="token punctuation">,</span>CP<span class="token punctuation">,</span>Alcaldia<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'REAM850330'</span><span class="token punctuation">,</span><span class="token string">'Mauricio'</span><span class="token punctuation">,</span><span class="token string">'Reyes'</span><span class="token punctuation">,</span><span class="token string">'Aguilar'</span><span class="token punctuation">,</span><span class="token string">'Las Flores'</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token string">'La Peña'</span><span class="token punctuation">,</span><span class="token number">15230</span><span class="token punctuation">,</span><span class="token string">'Milpa Alta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Clientes <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span>Nombre<span class="token punctuation">,</span>ApePaterno<span class="token punctuation">,</span>ApeMaterno<span class="token punctuation">,</span>Calle<span class="token punctuation">,</span>Num<span class="token punctuation">,</span>Colonia<span class="token punctuation">,</span>CP<span class="token punctuation">,</span>Alcaldia<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'VIPI800215'</span><span class="token punctuation">,</span><span class="token string">'Israel'</span><span class="token punctuation">,</span><span class="token string">'Vigueras'</span><span class="token punctuation">,</span><span class="token string">'Perez'</span><span class="token punctuation">,</span><span class="token string">'Aldama'</span><span class="token punctuation">,</span><span class="token number">48</span><span class="token punctuation">,</span><span class="token string">'Jazmin'</span><span class="token punctuation">,</span><span class="token number">15220</span><span class="token punctuation">,</span><span class="token string">'Milpa Alta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*Insert en proveedores*/</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Proveedores <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span>NomEmpresa<span class="token punctuation">,</span>NombreRepresentante<span class="token punctuation">,</span>ApeP_Representante<span class="token punctuation">,</span>TelContacto<span class="token punctuation">,</span>DiaPedido<span class="token punctuation">,</span>DiaEntrega<span class="token punctuation">,</span>TipoPago<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'CCF911030'</span><span class="token punctuation">,</span><span class="token string">'Coca-Cola'</span><span class="token punctuation">,</span><span class="token string">'Esteban'</span><span class="token punctuation">,</span><span class="token string">'Cruz'</span><span class="token punctuation">,</span><span class="token number">55999911</span><span class="token punctuation">,</span><span class="token string">'Jueves'</span><span class="token punctuation">,</span><span class="token string">'Jueves'</span><span class="token punctuation">,</span><span class="token string">'Transferencia'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Proveedores <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span>NomEmpresa<span class="token punctuation">,</span>NombreRepresentante<span class="token punctuation">,</span>ApeP_Representante<span class="token punctuation">,</span>TelContacto<span class="token punctuation">,</span>DiaPedido<span class="token punctuation">,</span>DiaEntrega<span class="token punctuation">,</span>TipoPago<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'CPC650101'</span><span class="token punctuation">,</span><span class="token string">'Sabritas,Gamesa,Pepsi'</span><span class="token punctuation">,</span><span class="token string">'Enrique'</span><span class="token punctuation">,</span><span class="token string">'Marin'</span><span class="token punctuation">,</span><span class="token number">55999922</span><span class="token punctuation">,</span><span class="token string">'Jueves'</span><span class="token punctuation">,</span><span class="token string">'Viernes'</span><span class="token punctuation">,</span><span class="token string">'Efectivo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Proveedores <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span>NomEmpresa<span class="token punctuation">,</span>NombreRepresentante<span class="token punctuation">,</span>ApeP_Representante<span class="token punctuation">,</span>TelContacto<span class="token punctuation">,</span>DiaPedido<span class="token punctuation">,</span>DiaEntrega<span class="token punctuation">,</span>TipoPago<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'GBI600203'</span><span class="token punctuation">,</span><span class="token string">'Bimbo'</span><span class="token punctuation">,</span><span class="token string">'Juan'</span><span class="token punctuation">,</span><span class="token string">'Alcazar'</span><span class="token punctuation">,</span><span class="token number">55999999</span><span class="token punctuation">,</span><span class="token string">'Lunes'</span><span class="token punctuation">,</span><span class="token string">'Martes'</span><span class="token punctuation">,</span><span class="token string">'Efectivo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*Insert en productos*/</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos<span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'Pan tostado clásico'</span><span class="token punctuation">,</span><span class="token string">'Pan T Clásico'</span><span class="token punctuation">,</span><span class="token number">35.00</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'Pan integral grande'</span><span class="token punctuation">,</span><span class="token string">'Pan Int Grnd'</span><span class="token punctuation">,</span><span class="token number">45.00</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'Roles de canela glaseados'</span><span class="token punctuation">,</span><span class="token string">'Roles Glas'</span><span class="token punctuation">,</span><span class="token number">20.00</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'Panquecitos con chispas sabor chocolate'</span><span class="token punctuation">,</span><span class="token string">'Panques Chispas Choc'</span><span class="token punctuation">,</span><span class="token number">25.00</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'Donitas espolvoreadas'</span><span class="token punctuation">,</span><span class="token string">'Donas Espolv'</span><span class="token punctuation">,</span><span class="token number">20.00</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token string">'Coca cola sabor original 235 ml botella de v'</span><span class="token punctuation">,</span><span class="token string">'CocaCola vidrio 235'</span><span class="token punctuation">,</span><span class="token number">10.00</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token string">'Coca cola sabor original 600 ml no retornable'</span><span class="token punctuation">,</span><span class="token string">'CocaCola 600'</span><span class="token punctuation">,</span><span class="token number">15.00</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">'Fanta sabor naranja 354 ml lata'</span><span class="token punctuation">,</span><span class="token string">'Fanta lata'</span><span class="token punctuation">,</span><span class="token number">13.00</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token string">'Coca cola light 354 ml lata'</span><span class="token punctuation">,</span><span class="token string">'CocaCola L lata'</span><span class="token punctuation">,</span><span class="token number">13.00</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token string">'Coca cola light 600 ml no retornable'</span><span class="token punctuation">,</span><span class="token string">'CocaCola L 600'</span><span class="token punctuation">,</span><span class="token number">15.00</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token string">'Papas Sabritas adobadas 170 gr'</span><span class="token punctuation">,</span><span class="token string">'PapasAdibadas ch'</span><span class="token punctuation">,</span><span class="token number">15.00</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token string">'Fritos limón 180 gr'</span><span class="token punctuation">,</span><span class="token string">'Fritos ch'</span><span class="token punctuation">,</span><span class="token number">15.00</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token string">'Rufles de queso 200 gr'</span><span class="token punctuation">,</span><span class="token string">'RuflesQ ch'</span><span class="token punctuation">,</span><span class="token number">15.00</span><span class="token punctuation">,</span><span class="token number">17</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">,</span><span class="token string">'Churrumais 200 gr'</span><span class="token punctuation">,</span><span class="token string">'Churrumais ch'</span><span class="token punctuation">,</span><span class="token number">15.00</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token string">'Gamesa Emperador de chocolate 200gr'</span><span class="token punctuation">,</span><span class="token string">'Emperador choc ch'</span><span class="token punctuation">,</span><span class="token number">20.00</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Productos <span class="token punctuation">(</span>CodProd<span class="token punctuation">,</span>DescripL<span class="token punctuation">,</span>DescripC<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Existencias<span class="token punctuation">,</span>StockMin<span class="token punctuation">,</span>StockMax<span class="token punctuation">,</span>Oferta<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token string">'Gamesa Emperador piruetas limón 200gr'</span><span class="token punctuation">,</span><span class="token string">'Emperador limón ch'</span><span class="token punctuation">,</span><span class="token number">20.00</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*Insert en ventas*/</span>
+<span class="token comment">/*Verificación: Clientes_RFC NULL, asegurarse que sea permitido en la tabla*/</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Ventas <span class="token punctuation">(</span>NumV<span class="token punctuation">,</span>Fecha<span class="token punctuation">,</span>Hora<span class="token punctuation">,</span>Subtotal<span class="token punctuation">,</span>IVA<span class="token punctuation">,</span>Total<span class="token punctuation">,</span>Clientes_RFC<span class="token punctuation">,</span>Personal_NumSS<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'2023-01-13'</span><span class="token punctuation">,</span><span class="token string">'10:36:00'</span><span class="token punctuation">,</span><span class="token number">220.00</span><span class="token punctuation">,</span><span class="token number">35.20</span><span class="token punctuation">,</span><span class="token number">255.20</span><span class="token punctuation">,</span><span class="token string">'CARH810911'</span><span class="token punctuation">,</span><span class="token number">167</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Ventas <span class="token punctuation">(</span>NumV<span class="token punctuation">,</span>Fecha<span class="token punctuation">,</span>Hora<span class="token punctuation">,</span>Subtotal<span class="token punctuation">,</span>IVA<span class="token punctuation">,</span>Total<span class="token punctuation">,</span>Clientes_RFC<span class="token punctuation">,</span>Personal_NumSS<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'2023-01-14'</span><span class="token punctuation">,</span><span class="token string">'11:36:00'</span><span class="token punctuation">,</span><span class="token number">120.00</span><span class="token punctuation">,</span><span class="token number">19.20</span><span class="token punctuation">,</span><span class="token number">139.20</span><span class="token punctuation">,</span><span class="token string">'DOME751202'</span><span class="token punctuation">,</span><span class="token number">321</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Ventas <span class="token punctuation">(</span>NumV<span class="token punctuation">,</span>Fecha<span class="token punctuation">,</span>Hora<span class="token punctuation">,</span>Subtotal<span class="token punctuation">,</span>IVA<span class="token punctuation">,</span>Total<span class="token punctuation">,</span>Clientes_RFC<span class="token punctuation">,</span>Personal_NumSS<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'2023-01-15'</span><span class="token punctuation">,</span><span class="token string">'12:36:00'</span><span class="token punctuation">,</span><span class="token number">99.48</span><span class="token punctuation">,</span><span class="token number">15.92</span><span class="token punctuation">,</span><span class="token number">115.40</span><span class="token punctuation">,</span><span class="token string">'GUJA770724'</span><span class="token punctuation">,</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Ventas <span class="token punctuation">(</span>NumV<span class="token punctuation">,</span>Fecha<span class="token punctuation">,</span>Hora<span class="token punctuation">,</span>Subtotal<span class="token punctuation">,</span>IVA<span class="token punctuation">,</span>Total<span class="token punctuation">,</span>Clientes_RFC<span class="token punctuation">,</span>Personal_NumSS<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'2023-01-17'</span><span class="token punctuation">,</span><span class="token string">'09:21:00'</span><span class="token punctuation">,</span><span class="token number">159.48</span><span class="token punctuation">,</span><span class="token number">25.52</span><span class="token punctuation">,</span><span class="token number">185.00</span><span class="token punctuation">,</span><span class="token boolean">NULL</span><span class="token punctuation">,</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Ventas <span class="token punctuation">(</span>NumV<span class="token punctuation">,</span>Fecha<span class="token punctuation">,</span>Hora<span class="token punctuation">,</span>Subtotal<span class="token punctuation">,</span>IVA<span class="token punctuation">,</span>Total<span class="token punctuation">,</span>Clientes_RFC<span class="token punctuation">,</span>Personal_NumSS<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'2023-01-18'</span><span class="token punctuation">,</span><span class="token string">'13:46:00'</span><span class="token punctuation">,</span><span class="token number">159.48</span><span class="token punctuation">,</span><span class="token number">25.52</span><span class="token punctuation">,</span><span class="token number">185.00</span><span class="token punctuation">,</span><span class="token string">'REAM850330'</span><span class="token punctuation">,</span><span class="token number">321</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*Insert en productosv*/</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">35.00</span><span class="token punctuation">,</span><span class="token number">35.00</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">20.00</span><span class="token punctuation">,</span><span class="token number">40.00</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">13.00</span><span class="token punctuation">,</span><span class="token number">39.00</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">45.00</span><span class="token punctuation">,</span><span class="token number">45.00</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">20.00</span><span class="token punctuation">,</span><span class="token number">40.00</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">25.00</span><span class="token punctuation">,</span><span class="token number">50.00</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">35.00</span><span class="token punctuation">,</span><span class="token number">35.00</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">20.00</span><span class="token punctuation">,</span><span class="token number">60.00</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">10.00</span><span class="token punctuation">,</span><span class="token number">30.00</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosv <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioV<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Ventas_NumV<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">15.00</span><span class="token punctuation">,</span><span class="token number">60.00</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*Insert en compras*/</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Compras <span class="token punctuation">(</span>NumC<span class="token punctuation">,</span>FechaHoraP<span class="token punctuation">,</span>FechaHoraE<span class="token punctuation">,</span>TipoPago<span class="token punctuation">,</span>Subtotal<span class="token punctuation">,</span>IVA<span class="token punctuation">,</span>Total<span class="token punctuation">,</span>Proveedores_RFC<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1050</span><span class="token punctuation">,</span><span class="token string">'2022-01-20 00:00:00'</span><span class="token punctuation">,</span><span class="token string">'2022-01-21 00:00:00'</span><span class="token punctuation">,</span><span class="token string">'Efectivo'</span><span class="token punctuation">,</span><span class="token number">2198.28</span><span class="token punctuation">,</span><span class="token number">351.72</span><span class="token punctuation">,</span><span class="token number">2550.00</span><span class="token punctuation">,</span><span class="token string">'CCF911030'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Compras <span class="token punctuation">(</span>NumC<span class="token punctuation">,</span>FechaHoraP<span class="token punctuation">,</span>FechaHoraE<span class="token punctuation">,</span>TipoPago<span class="token punctuation">,</span>Subtotal<span class="token punctuation">,</span>IVA<span class="token punctuation">,</span>Total<span class="token punctuation">,</span>Proveedores_RFC<span class="token punctuation">)</span>
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1119</span><span class="token punctuation">,</span><span class="token string">'2022-01-15 00:00:00'</span><span class="token punctuation">,</span><span class="token string">'2022-01-15 00:00:00'</span><span class="token punctuation">,</span><span class="token string">'Transferencia'</span><span class="token punctuation">,</span><span class="token number">1482.76</span><span class="token punctuation">,</span><span class="token number">237.24</span><span class="token punctuation">,</span><span class="token number">1720.00</span><span class="token punctuation">,</span><span class="token string">'CPC650101'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*Insert en productosc*/</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">7.00</span><span class="token punctuation">,</span><span class="token number">350.00</span><span class="token punctuation">,</span><span class="token number">1050</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">12.00</span><span class="token punctuation">,</span><span class="token number">600.00</span><span class="token punctuation">,</span><span class="token number">1050</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">10.00</span><span class="token punctuation">,</span><span class="token number">500.00</span><span class="token punctuation">,</span><span class="token number">1050</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">10.00</span><span class="token punctuation">,</span><span class="token number">500.00</span><span class="token punctuation">,</span><span class="token number">1050</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">12.00</span><span class="token punctuation">,</span><span class="token number">600.00</span><span class="token punctuation">,</span><span class="token number">1050</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">13.00</span><span class="token punctuation">,</span><span class="token number">260.00</span><span class="token punctuation">,</span><span class="token number">1119</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">13.00</span><span class="token punctuation">,</span><span class="token number">260.00</span><span class="token punctuation">,</span><span class="token number">1119</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">13.00</span><span class="token punctuation">,</span><span class="token number">260.00</span><span class="token punctuation">,</span><span class="token number">1119</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">13.00</span><span class="token punctuation">,</span><span class="token number">260.00</span><span class="token punctuation">,</span><span class="token number">1119</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">17.00</span><span class="token punctuation">,</span><span class="token number">340.00</span><span class="token punctuation">,</span><span class="token number">1119</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> productosc <span class="token punctuation">(</span>Cantidad<span class="token punctuation">,</span>PrecioC<span class="token punctuation">,</span>Subtotal_Prod<span class="token punctuation">,</span>Compras_NumC<span class="token punctuation">,</span>Productos_CodProd<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">17.00</span><span class="token punctuation">,</span><span class="token number">340.00</span><span class="token punctuation">,</span><span class="token number">1119</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code><button class="copy-code-button">Copiar</button></pre>
+<h3 data-heading="5.  Insertar un nuevo registro en las tablas de: Clientes, Proveedores y Personal." dir="auto">5.  Insertar un nuevo registro en las tablas de: Clientes, Proveedores y Personal.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token comment">/* Insertar nuevo registro en la tabla clientes */</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> clientes <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span> Nombre<span class="token punctuation">,</span> ApePaterno<span class="token punctuation">,</span> ApeMaterno<span class="token punctuation">,</span> Calle<span class="token punctuation">,</span> Num<span class="token punctuation">,</span> Colonia<span class="token punctuation">,</span> CP<span class="token punctuation">,</span> Alcaldia<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'NUEVO123456'</span><span class="token punctuation">,</span> <span class="token string">'Luis'</span><span class="token punctuation">,</span> <span class="token string">'Martínez'</span><span class="token punctuation">,</span> <span class="token string">'Sánchez'</span><span class="token punctuation">,</span> <span class="token string">'Reforma'</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token string">'Centro'</span><span class="token punctuation">,</span> <span class="token number">16000</span><span class="token punctuation">,</span> <span class="token string">'Cuauhtémoc'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Insertar nuevo registro en la tabla proveedores */</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> proveedores <span class="token punctuation">(</span>RFC<span class="token punctuation">,</span> NomEmpresa<span class="token punctuation">,</span> NombreRepresentante<span class="token punctuation">,</span> ApeP_Representante<span class="token punctuation">,</span> TelContacto<span class="token punctuation">,</span> DiaPedido<span class="token punctuation">,</span> DiaEntrega<span class="token punctuation">,</span> TipoPago<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'NUEVO987654'</span><span class="token punctuation">,</span> <span class="token string">'Comercializadora XYZ'</span><span class="token punctuation">,</span> <span class="token string">'Ana'</span><span class="token punctuation">,</span> <span class="token string">'García'</span><span class="token punctuation">,</span> <span class="token number">55998877</span><span class="token punctuation">,</span> <span class="token string">'Lunes'</span><span class="token punctuation">,</span> <span class="token string">'Martes'</span><span class="token punctuation">,</span> <span class="token string">'Cheque'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Insertar nuevo registro en la tabla personal */</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> personal <span class="token punctuation">(</span>NumSS<span class="token punctuation">,</span> Nombre<span class="token punctuation">,</span> ApePaterno<span class="token punctuation">,</span> ApeMaterno<span class="token punctuation">,</span> TelPersonal<span class="token punctuation">,</span> TelCasa<span class="token punctuation">,</span> FechaContrato<span class="token punctuation">,</span> FecuenciaPago<span class="token punctuation">,</span> SueldoBase<span class="token punctuation">,</span> Puesto<span class="token punctuation">,</span> h_entrada<span class="token punctuation">,</span> h_salida<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token string">'Carlos'</span><span class="token punctuation">,</span> <span class="token string">'Lopez'</span><span class="token punctuation">,</span> <span class="token string">'Morales'</span><span class="token punctuation">,</span> <span class="token number">55667788</span><span class="token punctuation">,</span> <span class="token number">21578901</span><span class="token punctuation">,</span> <span class="token string">'2024-09-01'</span><span class="token punctuation">,</span> <span class="token string">'Quincena'</span><span class="token punctuation">,</span> <span class="token number">2500.00</span><span class="token punctuation">,</span> <span class="token string">'Contador'</span><span class="token punctuation">,</span> <span class="token string">'08:00:00'</span><span class="token punctuation">,</span> <span class="token string">'17:00:00'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code><button class="copy-code-button">Copiar</button></pre>
+<h3 data-heading="6. Crear una consulta que muestre: número de seguro social, nombre completo del empleado (en una sola columna), número de ventas registradas por empleado y monto en ventas registradas por empleado. Se deben mostrar a todos los empleados registrados, hayan o no registrado ventas." dir="auto">6. Crear una consulta que muestre: número de seguro social, nombre completo del empleado (en una sola columna), número de ventas registradas por empleado y monto en ventas registradas por empleado. Se deben mostrar a todos los empleados registrados, hayan o no registrado ventas.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">SELECT</span> 
+    p<span class="token punctuation">.</span>NumSS<span class="token punctuation">,</span>
+    CONCAT<span class="token punctuation">(</span>p<span class="token punctuation">.</span>Nombre<span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">,</span> p<span class="token punctuation">.</span>ApePaterno<span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">,</span> p<span class="token punctuation">.</span>ApeMaterno<span class="token punctuation">)</span> <span class="token keyword">AS</span> NombreCompleto<span class="token punctuation">,</span>
+    <span class="token function">COUNT</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>NumV<span class="token punctuation">)</span> <span class="token keyword">AS</span> NumeroVentas<span class="token punctuation">,</span>
+    <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>Total<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> MontoVentas
+<span class="token keyword">FROM</span> 
+    personal p
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> 
+    ventas v <span class="token keyword">ON</span> p<span class="token punctuation">.</span>NumSS <span class="token operator">=</span> v<span class="token punctuation">.</span>Personal_NumSS
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> 
+    p<span class="token punctuation">.</span>NumSS<span class="token punctuation">,</span> 
+    p<span class="token punctuation">.</span>Nombre<span class="token punctuation">,</span> 
+    p<span class="token punctuation">.</span>ApePaterno<span class="token punctuation">,</span> 
+    p<span class="token punctuation">.</span>ApeMaterno<span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<p dir="auto"><img alt="Pasted image 20240911234448.png" src="Pasted image 20240911234448.png" class="internal-embed"></p>
+<h3 data-heading="7. Crear una vista con la consulta anterior que se llame: “V_ventasXemp”." dir="auto">7. Crear una vista con la consulta anterior que se llame: “V_ventasXemp”.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token comment">-- Crear una vista llamada 'V_ventasXemp'</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> V_ventasXemp <span class="token keyword">AS</span>
+<span class="token comment">-- Seleccionar el número de seguro social del empleado</span>
+<span class="token keyword">SELECT</span> 
+    p<span class="token punctuation">.</span>NumSS<span class="token punctuation">,</span>
+    <span class="token comment">-- Concatenar nombre, apellido paterno y apellido materno para formar el nombre completo del empleado</span>
+    CONCAT<span class="token punctuation">(</span>p<span class="token punctuation">.</span>Nombre<span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">,</span> p<span class="token punctuation">.</span>ApePaterno<span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">,</span> p<span class="token punctuation">.</span>ApeMaterno<span class="token punctuation">)</span> <span class="token keyword">AS</span> NombreCompleto<span class="token punctuation">,</span>
+    <span class="token comment">-- Contar el número de ventas registradas por cada empleado</span>
+    <span class="token function">COUNT</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>NumV<span class="token punctuation">)</span> <span class="token keyword">AS</span> NumeroVentas<span class="token punctuation">,</span>
+    <span class="token comment">-- Sumar el monto total de ventas registradas por cada empleado, usando COALESCE para manejar casos sin ventas</span>
+    <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>Total<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> MontoVentas
+<span class="token keyword">FROM</span> 
+    personal p
+<span class="token comment">-- Realizar una unión externa izquierda para incluir todos los empleados, incluso si no tienen ventas registradas</span>
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> 
+    ventas v <span class="token keyword">ON</span> p<span class="token punctuation">.</span>NumSS <span class="token operator">=</span> v<span class="token punctuation">.</span>Personal_NumSS
+<span class="token comment">-- Agrupar los resultados por el número de seguro social y el nombre completo del empleado</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> 
+    p<span class="token punctuation">.</span>NumSS<span class="token punctuation">,</span> 
+    p<span class="token punctuation">.</span>Nombre<span class="token punctuation">,</span> 
+    p<span class="token punctuation">.</span>ApePaterno<span class="token punctuation">,</span> 
+    p<span class="token punctuation">.</span>ApeMaterno<span class="token punctuation">;</span>
+
+</code><button class="copy-code-button">Copiar</button></pre>
+<p dir="auto">Consulta:</p>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> V_ventasXemp<span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<p dir="auto"><img alt="Pasted image 20240911235500.png" src="Pasted image 20240911235500.png" class="internal-embed"></p>
+<h3 data-heading="4. Con la vista anterior crea una consulta que muestre todos los campos y una comisión de 10% sobre el monto de ventas por empleado." dir="auto">4. Con la vista anterior crea una consulta que muestre todos los campos y una comisión de 10% sobre el monto de ventas por empleado.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">SELECT</span> 
+    NumSS<span class="token punctuation">,</span>
+    NombreCompleto<span class="token punctuation">,</span>
+    NumeroVentas<span class="token punctuation">,</span>
+    MontoVentas<span class="token punctuation">,</span>
+    <span class="token comment">-- Calcular la comisión del 10% sobre el monto de ventas</span>
+    MontoVentas <span class="token operator">*</span> <span class="token number">0.10</span> <span class="token keyword">AS</span> Comision
+<span class="token keyword">FROM</span> 
+    V_ventasXemp<span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<p dir="auto"><img alt="Pasted image 20240911235421.png" src="Pasted image 20240911235421.png" class="internal-embed"></p>
+<h3 data-heading="5. Crear una consulta que muestre: el código de producto, descripción corta, precio unitario y cantidad total de productos vendidos a la fecha. Ordenar de manera descendente según sus ventas, es decir primero se mostrará el producto más vendido." dir="auto">5. Crear una consulta que muestre: el código de producto, descripción corta, precio unitario y cantidad total de productos vendidos a la fecha. Ordenar de manera descendente según sus ventas, es decir primero se mostrará el producto más vendido.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">SELECT</span> 
+    p<span class="token punctuation">.</span>CodProd <span class="token keyword">AS</span> CodigoProducto<span class="token punctuation">,</span>
+    p<span class="token punctuation">.</span>DescripC <span class="token keyword">AS</span> DescripcionCorta<span class="token punctuation">,</span>
+    p<span class="token punctuation">.</span>PrecioV <span class="token keyword">AS</span> PrecioUnitario<span class="token punctuation">,</span>
+    <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>pv<span class="token punctuation">.</span>Cantidad<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> CantidadTotalVendida
+<span class="token keyword">FROM</span> 
+    productos p
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> 
+    productosv pv <span class="token keyword">ON</span> p<span class="token punctuation">.</span>CodProd <span class="token operator">=</span> pv<span class="token punctuation">.</span>Productos_CodProd
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> 
+    p<span class="token punctuation">.</span>CodProd<span class="token punctuation">,</span> p<span class="token punctuation">.</span>DescripC<span class="token punctuation">,</span> p<span class="token punctuation">.</span>PrecioV
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 
+    CantidadTotalVendida <span class="token keyword">DESC</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<p dir="auto"><img alt="Pasted image 20240911235819.png" src="Pasted image 20240911235819.png" class="internal-embed"><br>
+<img alt="Pasted image 20240911235840.png" src="Pasted image 20240911235840.png" class="internal-embed"></p>
+<h3 data-heading="6. Modificar la consulta anterior para que solo se muestren los productos con mas de 2 productos vendidos." dir="auto">6. Modificar la consulta anterior para que solo se muestren los productos con mas de 2 productos vendidos.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">SELECT</span>
+    p<span class="token punctuation">.</span>CodProd <span class="token keyword">AS</span> CodigoProducto<span class="token punctuation">,</span>
+    p<span class="token punctuation">.</span>DescripC <span class="token keyword">AS</span> DescripcionCorta<span class="token punctuation">,</span>
+    p<span class="token punctuation">.</span>PrecioV <span class="token keyword">AS</span> PrecioUnitario<span class="token punctuation">,</span>
+    <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>pv<span class="token punctuation">.</span>Cantidad<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> CantidadTotalVendida
+<span class="token keyword">FROM</span> 
+    productos p
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> 
+    productosv pv <span class="token keyword">ON</span> p<span class="token punctuation">.</span>CodProd <span class="token operator">=</span> pv<span class="token punctuation">.</span>Productos_CodProd
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> 
+    p<span class="token punctuation">.</span>CodProd<span class="token punctuation">,</span> p<span class="token punctuation">.</span>DescripC<span class="token punctuation">,</span> p<span class="token punctuation">.</span>PrecioV
+<span class="token keyword">HAVING</span> 
+    <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>pv<span class="token punctuation">.</span>Cantidad<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 
+    CantidadTotalVendida <span class="token keyword">DESC</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<p dir="auto"><img alt="Pasted image 20240912000043.png" src="Pasted image 20240912000043.png" class="internal-embed"></p>
+<h3 data-heading="7. Con la consulta anterior crear la vista “ProdsMasVendidos”." dir="auto">7. Con la consulta anterior crear la vista “ProdsMasVendidos”.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> ProdsMasVendidos <span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> 
+   p<span class="token punctuation">.</span>CodProd <span class="token keyword">AS</span> CodigoProducto<span class="token punctuation">,</span>
+   p<span class="token punctuation">.</span>DescripC <span class="token keyword">AS</span> DescripcionCorta<span class="token punctuation">,</span>
+   p<span class="token punctuation">.</span>PrecioV <span class="token keyword">AS</span> PrecioUnitario<span class="token punctuation">,</span>
+   <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>pv<span class="token punctuation">.</span>Cantidad<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> CantidadTotalVendida
+<span class="token keyword">FROM</span> 
+   productos p
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> 
+   productosv pv <span class="token keyword">ON</span> p<span class="token punctuation">.</span>CodProd <span class="token operator">=</span> pv<span class="token punctuation">.</span>Productos_CodProd
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> 
+   p<span class="token punctuation">.</span>CodProd<span class="token punctuation">,</span> p<span class="token punctuation">.</span>DescripC<span class="token punctuation">,</span> p<span class="token punctuation">.</span>PrecioV
+<span class="token keyword">HAVING</span> 
+   <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>pv<span class="token punctuation">.</span>Cantidad<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 
+   CantidadTotalVendida <span class="token keyword">DESC</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<p dir="auto"><img alt="Pasted image 20240912000410.png" src="Pasted image 20240912000410.png" class="internal-embed"></p>
+<h3 data-heading="8. Agregar a la tabla productos la columna “Vigente” de tipo booleano (según su SMBDR garantice que su funcionalidad es de un booleano)." dir="auto">8. Agregar a la tabla productos la columna “Vigente” de tipo booleano (según su SMBDR garantice que su funcionalidad es de un booleano).</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> productos
+<span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> Vigente <span class="token keyword">BOOLEAN</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">TRUE</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<h3 data-heading="9. En una sola actualización, a todos los productos que no tengan ventas registradas, insertar el valor de 0, False o No (según su SMNDR)." dir="auto">9. En una sola actualización, a todos los productos que no tengan ventas registradas, insertar el valor de 0, False o No (según su SMNDR).</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">UPDATE</span> productos
+<span class="token keyword">SET</span> Vigente <span class="token operator">=</span> <span class="token boolean">FALSE</span>
+<span class="token keyword">WHERE</span> CodProd <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> Productos_CodProd
+    <span class="token keyword">FROM</span> productosv
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<h3 data-heading="10.En una segunda actualización deberá insertarse el valor de 1, True o Si (según su SMNDR), para todos los demás registros que no cumplan la condición del punto anterior." dir="auto">10.En una segunda actualización deberá insertarse el valor de 1, True o Si (según su SMNDR), para todos los demás registros que no cumplan la condición del punto anterior.</h3>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">UPDATE</span> productos
+<span class="token keyword">SET</span> Vigente <span class="token operator">=</span> <span class="token boolean">TRUE</span>
+<span class="token keyword">WHERE</span> CodProd <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> Productos_CodProd
+    <span class="token keyword">FROM</span> productosv
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<pre class="language-sql" tabindex="0"><code class="language-sql is-loaded"><span class="token keyword">SELECT</span> CodProd<span class="token punctuation">,</span> DescripC<span class="token punctuation">,</span> PrecioV<span class="token punctuation">,</span> Vigente
+<span class="token keyword">FROM</span> productos
+<span class="token keyword">WHERE</span> Vigente <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button">Copiar</button></pre>
+<p dir="auto"><img alt="Pasted image 20240912001022.png" src="Pasted image 20240912001022.png" class="internal-embed"></p>
+    </body>
+</html>
